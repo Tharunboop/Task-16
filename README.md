@@ -16,8 +16,6 @@ sudo systemctl status ssh
 Result:
 SSH service was active and running.
 
-Screenshot:
-screenshots/01_ssh_service_running.png
 
 ---
 
@@ -35,8 +33,6 @@ Command Used:
 sudo nano /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
-Screenshot:
-screenshots/02_password_auth_enabled.png
 
 ---
 
@@ -52,9 +48,6 @@ Multiple wrong passwords were entered.
 Result:
 Permission denied and maximum authentication attempts exceeded.
 
-Screenshot:
-screenshots/03_failed_login_attempt.png
-
 ---
 
 # Phase 4: Identification & Log Analysis
@@ -67,9 +60,6 @@ sudo journalctl -u ssh | grep -i "failed"
 Observed:
 Failed password for kali from 127.0.0.1
 
-Screenshot:
-screenshots/04_log_evidence_journalctl.png
-
 ---
 
 # Phase 5: Quantifying Attack
@@ -79,9 +69,6 @@ sudo journalctl -u ssh | grep -i "failed" | wc -l
 
 Purpose:
 Count number of failed attempts.
-
-Screenshot:
-screenshots/05_failed_attempt_count.png
 
 ---
 
@@ -96,10 +83,6 @@ sudo ufw status
 
 Result:
 Attacking IP 127.0.0.1 blocked.
-
-Screenshot:
-screenshots/06_firewall_blocked_ip.png
-
 ---
 
 # Phase 7: Eradication & Prevention
@@ -113,11 +96,6 @@ sudo systemctl status fail2ban
 
 Result:
 Fail2Ban active and monitoring SSH service.
-
-Screenshot:
-![Fail2Ban Running](screenshots/07_fail2ban_running.png)
-
-
 
 # Incident Classification
 
